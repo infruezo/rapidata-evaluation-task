@@ -1,5 +1,13 @@
+import { Hero } from "./components/Home/Hero";
+import { Navbar } from "./components/Navbar";
+import { Home } from "./pages/Home";
+
 function App() {
-  return <h1 className="text-red-500 font-bold text-3xl">Hello world !</h1>;
+  return (
+    <div className="min-h-screen w-full">
+      <Home />
+    </div>
+  );
 }
 
 export default App;
