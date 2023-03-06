@@ -5,3 +5,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .link-v1 {
+    @apply cursor-pointer duration-300 hover:text-primary-blue;
+  }
+
+  .button-v1 {
+    @apply rounded-lg bg-gradient-to-b from-primary-blue to-primary-mainBlue/50 px-4 py-2 font-medium text-white shadow-md duration-300 active:scale-110;
+  }
+
+  .button-v2 {
+    @apply rounded-lg bg-gradient-to-t from-primary-mainGreen to-emerald-500 px-4 py-2 font-medium text-white shadow-md duration-300 active:scale-110;
+  }
+
+  .custom-container {
+    @apply mx-auto max-w-screen-2xl p-4 lg:py-6;
+  }
+}
+
+/* Custom CSS */
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.hero-section {
+  height: 800px;
+  background-image: url("/assets/images/brand/hero_background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: inherit;
+}
