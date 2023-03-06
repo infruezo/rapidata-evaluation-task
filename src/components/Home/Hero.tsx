@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -23,7 +24,7 @@ export const Hero = () => {
           </h5>
 
           <button className="mx-auto w-fit rounded-lg bg-primary-white py-3 px-8 text-center font-bold text-primary-mainBlue shadow-lg duration-300 active:scale-110 md:mx-0">
-            FREE DEMO
+            <Link to="/prepare">FREE DEMO</Link>
           </button>
         </div>
 

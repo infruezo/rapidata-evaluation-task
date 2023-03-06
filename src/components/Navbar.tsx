@@ -1,21 +1,27 @@
+import { Link } from "react-router-dom";
+
 export const Navbar = () => {
   return (
     <nav className="h-[80px] w-full border-b border-gray-50 bg-white shadow-sm">
       <div className="custom-container flex h-full items-center justify-between">
         {/* left side */}
         <div className="flex items-center space-x-2">
-          <img
-            src="/assets/images/brand/logo_with_name.svg"
-            alt="logo/svg"
-            className="h-8 w-auto object-contain lg:h-10"
-          />
+          <Link to="/">
+            <img
+              src="/assets/images/brand/logo_with_name.svg"
+              alt="logo/svg"
+              className="h-8 w-auto object-contain lg:h-10"
+            />
+          </Link>
         </div>
 
         {/* right side | desktop screens */}
         <div className="hidden items-center space-x-6 lg:flex">
           {/* links */}
           <ul className=" flex items-center space-x-8 border-r border-primary-blue pr-6 text-base font-medium text-gray-900 lg:text-lg">
-            <li className="link-v1">Home</li>
+            <Link to="/" className="link-v1">
+              Home
+            </Link>
             <li className="link-v1">About Us</li>
             <li className="link-v1">Our Offers</li>
             <li className="link-v1">Pricing</li>
@@ -49,7 +55,7 @@ export const Navbar = () => {
 
           {/* Free Demo */}
           <button type="button" className="button-v1">
-            Free Demo
+            <Link to="/prepare">Free Demo</Link>
           </button>
 
           {/* register */}
