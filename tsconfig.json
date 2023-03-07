@@ -13,9 +13,11 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "strictNullChecks": false,
     "noEmit": true,
     "jsx": "react-jsx"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
+  // "exclude": ["src/pages/SolvingPage.tsx"]
 }

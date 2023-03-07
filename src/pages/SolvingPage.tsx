@@ -1,8 +1,7 @@
-import React from "react";
-
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Navbar } from "../components/Navbar";
 import { IntroductionModal } from "../components/IntroductionModal";
+import { CarCanvas } from "../components/CarCanvas";
 
 export const SolvingPage = () => {
   // constants - used later for selecting a random image from the public folder
@@ -12,6 +11,9 @@ export const SolvingPage = () => {
   // useState declarations
   const [loading, setLoading] = useState(false);
   const [randomImage, setRandomImage] = useState(MIN_NUMBER);
+
+  // component ref
+  const componentRef = useRef(null);
 
   // get the image function / simulate call to backend api
   async function getObjectAfterDelay(): Promise<object> {
@@ -28,11 +30,12 @@ export const SolvingPage = () => {
   }
 
   // code runs on page load
+  // get the image from the api and simulate the call
   useEffect(() => {
     setLoading(true);
     const fetchPromise = getObjectAfterDelay();
     const timeOutPromise = new Promise((resolve) => {
-      setTimeout(resolve, 3000);
+      setTimeout(resolve, 300);
     });
 
     Promise.all([fetchPromise, timeOutPromise]).then(([response]) => {
@@ -49,17 +52,21 @@ export const SolvingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full">
+    <div
+      className="min-h-screen w-full bg-gradient-to-b from-primary-mainBlue/40 to-primary-mainBlue/10"
+      ref={componentRef}
+    >
       <Navbar />
 
-      <div className="mt-12 flex items-center justify-center md:mt-24 lg:mt-32">
+      <div className="mt-6 flex items-center justify-center md:mt-24 lg:mt-32">
+        {/* Introduction modal */}
         <IntroductionModal />
         {loading ? (
           <>
             <img src="/assets/images/gifs/loader.gif" alt="loader/gif" />
           </>
         ) : (
-          <>
+          <div>
             <div className="flex flex-col items-center space-y-8 px-2 text-center text-gray-900">
               <div>
                 <h3 className="text-2xl font-semibold">Get Started Now!</h3>
@@ -67,12 +74,13 @@ export const SolvingPage = () => {
                   Please Select The Car
                 </h5>
               </div>
-              <img
-                src={`/assets/images/cars/${randomImage}.jpg`}
-                alt="image/jpg"
+
+              <CarCanvas
+                componentRef={componentRef}
+                image={`/assets/images/cars/${randomImage}.jpg`}
               />
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
