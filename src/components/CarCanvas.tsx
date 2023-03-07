@@ -46,11 +46,6 @@ export const CarCanvas = ({
     startX.current = nativeEvent.offsetX;
     startY.current = nativeEvent.offsetY;
 
-    console.log({
-      X: startX.current,
-      Y: startY.current,
-    });
-
     setIsDrawing(true);
   };
 
@@ -96,11 +91,11 @@ export const CarCanvas = ({
       boudingBox: {
         topLeft: {
           x: startX.current,
-          y: -1 * (startY.current - 350),
+          y: -1 * (startY.current - canvasRef.current.width),
         },
         bottomRight: {
           x: newMouseX,
-          y: -1 * (newMouseY - 350),
+          y: -1 * (newMouseY - canvasRef.current.width),
         },
       },
     });
