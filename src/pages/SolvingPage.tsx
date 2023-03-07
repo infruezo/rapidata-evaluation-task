@@ -56,7 +56,7 @@ export const SolvingPage = () => {
         <IntroductionModal />
         {loading ? (
           <>
-            <img src="/assets/images/brand/loader.gif" alt="loader/gif" />
+            <img src="/assets/images/gifs/loader.gif" alt="loader/gif" />
           </>
         ) : (
           <>

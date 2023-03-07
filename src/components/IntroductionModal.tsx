@@ -16,8 +16,8 @@ export const IntroductionModal = () => {
               {/*content*/}
               <div className="relative flex w-full flex-col rounded-lg border-0 bg-primary-white shadow-lg outline-none focus:outline-none">
                 {/*header*/}
-                <div className="border-primary-smokehouseDarkRed/25 flex items-center justify-between rounded-t border-b border-solid p-5">
-                  <h3 className="text-primary-smokehouseDarkRed text-lg font-bold lg:text-2xl">
+                <div className="flex items-center justify-between rounded-t border-b border-solid p-5">
+                  <h3 className="text-lg font-bold lg:text-2xl">
                     Select the car like the GIF below.
                   </h3>
                   <button
@@ -48,7 +48,7 @@ export const IntroductionModal = () => {
                   <>
                     <div className="relative flex w-full flex-col">
                       <img
-                        src=""
+                        src="/assets/images/gifs/introduction.gif"
                         alt="introduction/gif"
                         className="h-80 w-full object-cover"
                       />
@@ -66,14 +66,14 @@ export const IntroductionModal = () => {
                     </div>
                     <div className="border-primary-smokehouseDarkRed/25 flex items-center justify-end space-x-4 rounded-b border-t border-solid p-6">
                       <button
-                        className="mr-1 mb-1 rounded bg-red-500 px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:bg-red-600 hover:shadow-lg focus:outline-none"
+                        className="button-v2"
                         type="button"
                         onClick={() => setVisible(false)}
                       >
                         Skip
                       </button>
                       <button
-                        className="hover:bg-primary-eateryBrown mr-1 mb-1 rounded bg-primary-mainBlue px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none"
+                        className="button-v1"
                         type="button"
                         onClick={() => setStep(1)}
                       >
@@ -87,7 +87,7 @@ export const IntroductionModal = () => {
                   <>
                     <div className="relative flex w-full flex-col">
                       <img
-                        src=""
+                        src="/assets/images/gifs/introduction.gif"
                         alt="introduction/gif"
                         className="h-80 w-full object-cover"
                       />
@@ -105,7 +105,7 @@ export const IntroductionModal = () => {
                     </div>
                     <div className="border-primary-smokehouseDarkRed/25 flex items-center justify-end space-x-4 rounded-b border-t border-solid p-6">
                       <button
-                        className="hover:bg-primary-eateryBrown mr-1 mb-1 rounded bg-primary-mainBlue px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none"
+                        className="button-v1"
                         type="button"
                         onClick={() => setVisible(false)}
                       >

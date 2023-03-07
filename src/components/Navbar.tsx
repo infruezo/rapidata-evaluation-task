@@ -54,9 +54,9 @@ export const Navbar = () => {
           </div>
 
           {/* Free Demo */}
-          <button type="button" className="button-v1">
-            <Link to="/prepare">Free Demo</Link>
-          </button>
+          <Link to="/prepare" className="button-v1">
+            <button type="button">Free Demo</button>
+          </Link>
 
           {/* register */}
           <button type="button" className="button-v2">
