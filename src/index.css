@@ -12,11 +12,11 @@
   }
 
   .button-v1 {
-    @apply rounded-lg bg-gradient-to-b from-primary-blue to-primary-mainBlue/50 px-4 py-2 font-medium text-white shadow-md duration-300 active:scale-110;
+    @apply rounded-lg bg-gradient-to-b from-primary-blue to-primary-mainBlue/50 px-4 py-2 font-medium text-white shadow-md duration-300 active:scale-110 disabled:cursor-not-allowed disabled:bg-gradient-to-b disabled:from-blue-200 disabled:to-blue-100 disabled:active:scale-100;
   }
 
   .button-v2 {
-    @apply rounded-lg bg-gradient-to-t from-primary-mainGreen to-emerald-500 px-4 py-2 font-medium text-white shadow-md duration-300 active:scale-110;
+    @apply rounded-lg bg-gradient-to-t from-primary-mainGreen to-emerald-500 px-4 py-2 font-medium text-white shadow-md duration-300 active:scale-110 disabled:cursor-not-allowed disabled:bg-gradient-to-b disabled:from-emerald-200 disabled:to-emerald-100 disabled:active:scale-100;
   }
 
   .custom-container {
@@ -24,7 +24,7 @@
   }
 
   .canvas-container {
-    @apply h-52 w-full border border-gray-900 md:h-72 lg:h-96 lg:w-[600px];
+    @apply h-[350px] w-[350px] border border-gray-900 shadow-sm;
   }
 }
 
@@ -41,11 +41,8 @@
   background-attachment: inherit;
 }
 
-.canvas-container-rect {
-  height: 500px;
-  width: 500px;
-  border: 2px solid #000;
-  margin-left: 100px;
-  margin-top: 100px;
+.canvas {
   touch-action: none;
+  background-size: cover;
+  background-repeat: no-repeat;
 }

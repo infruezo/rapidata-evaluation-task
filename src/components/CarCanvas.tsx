@@ -1,10 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export const CarCanvas = () => {
+export const CarCanvas = ({
+  componentRef,
+  image,
+}: {
+  componentRef: any;
+  image: string;
+}) => {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
 
   const [isDrawing, setIsDrawing] = useState(false);
+  const [newMouseX, setNewMouseX] = useState(0);
+  const [newMouseY, setNewMouseY] = useState(0);
 
   const canvasOffSetX = useRef(null);
   const canvasOffSetY = useRef(null);
@@ -13,16 +21,16 @@ export const CarCanvas = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    canvas.width = 500;
-    canvas.height = 500;
+    canvas.width = 350;
+    canvas.height = 350;
 
     const context = canvas.getContext("2d");
     context.lineCap = "round";
-    context.strokeStyle = "black";
-    context.lineWidth = 5;
+    context.strokeStyle = "red";
+    context.lineWidth = 1;
     contextRef.current = context;
 
-    const canvasOffSet = canvas.getBoundingClientRect();
+    const canvasOffSet = componentRef.current.getBoundingClientRect();
     canvasOffSetX.current = canvasOffSet.top;
     canvasOffSetY.current = canvasOffSet.left;
   }, []);
@@ -31,8 +39,13 @@ export const CarCanvas = () => {
     nativeEvent.preventDefault();
     nativeEvent.stopPropagation();
 
-    startX.current = nativeEvent.clientX - canvasOffSetX.current;
-    startY.current = nativeEvent.clientY - canvasOffSetY.current;
+    startX.current = nativeEvent.offsetX;
+    startY.current = nativeEvent.offsetY;
+
+    console.log({
+      X: startX.current,
+      Y: startY.current,
+    });
 
     setIsDrawing(true);
   };
@@ -45,8 +58,8 @@ export const CarCanvas = () => {
     nativeEvent.preventDefault();
     nativeEvent.stopPropagation();
 
-    const newMouseX = nativeEvent.clientX - canvasOffSetX.current;
-    const newMouseY = nativeEvent.clientY - canvasOffSetY.current;
+    setNewMouseX(nativeEvent.offsetX - canvasOffSetX.current);
+    setNewMouseY(nativeEvent.offsetY - canvasOffSetY.current);
 
     const rectWidht = newMouseX - startX.current;
     const rectHeight = newMouseY - startY.current;
@@ -71,17 +84,17 @@ export const CarCanvas = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col space-y-4">
       <canvas
-        className="canvas-container-rect"
+        className="canvas canvas-container cursor-cell"
+        style={{ backgroundImage: `url(${image})` }}
         ref={canvasRef}
         onMouseDown={startDrawingRectangle}
         onMouseMove={drawRectangle}
         onMouseUp={stopDrawingRectangle}
-        onMouseLeave={stopDrawingRectangle}
         onPointerDown={startDrawingRectangle}
         onPointerMove={drawRectangle}
-        onPointerLeave={stopDrawingRectangle}
+        onPointerUp={stopDrawingRectangle}
       ></canvas>
     </div>
   );
