@@ -13,6 +13,7 @@ export const CarCanvas = ({
   const [isDrawing, setIsDrawing] = useState(false);
   const [newMouseX, setNewMouseX] = useState(0);
   const [newMouseY, setNewMouseY] = useState(0);
+  const [canSubmit, setCanSubmit] = useState(false);
   const [canDraw, setCanDraw] = useState(true);
 
   const canvasOffSetX = useRef(null);
@@ -31,7 +32,6 @@ export const CarCanvas = ({
     context.lineWidth = 1;
     contextRef.current = context;
 
-    // const canvasOffSet = componentRef.current.getBoundingClientRect();
     const canvasOffSet = componentRef.current.getBoundingClientRect();
     canvasOffSetX.current = canvasOffSet.top;
     canvasOffSetY.current = canvasOffSet.left;
@@ -86,10 +86,29 @@ export const CarCanvas = ({
   const stopDrawingRectangle = () => {
     setIsDrawing(false);
     setCanDraw(false);
+    setCanSubmit(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log({
+      boudingBox: {
+        topLeft: {
+          x: startX.current,
+          y: -1 * (startY.current - 350),
+        },
+        bottomRight: {
+          x: newMouseX,
+          y: -1 * (newMouseY - 350),
+        },
+      },
+    });
   };
 
   const handleReset = () => {
     setCanDraw(true);
+    setCanSubmit(false);
     contextRef.current.clearRect(
       0,
       0,
@@ -99,7 +118,7 @@ export const CarCanvas = ({
   };
 
   return (
-    <div className="flex flex-col space-y-4">
+    <form className="flex flex-col space-y-4" onSubmit={handleSubmit}>
       <canvas
         className="canvas canvas-container cursor-cell"
         style={{ backgroundImage: `url(${image})` }}
@@ -112,6 +131,10 @@ export const CarCanvas = ({
         onPointerUp={stopDrawingRectangle}
       ></canvas>
 
+      <button type="submit" className="button-v1" disabled={!canSubmit}>
+        Submit Response
+      </button>
+
       <button
         type="button"
         className="button-v2"
@@ -120,6 +143,6 @@ export const CarCanvas = ({
       >
         Reset
       </button>
-    </div>
+    </form>
   );
 };
