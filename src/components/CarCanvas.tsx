@@ -79,9 +79,9 @@ export const CarCanvas = () => {
         onMouseMove={drawRectangle}
         onMouseUp={stopDrawingRectangle}
         onMouseLeave={stopDrawingRectangle}
-        onTouchStart={startDrawingRectangle}
-        onTouchMove={drawRectangle}
-        onTouchEnd={stopDrawingRectangle}
+        onPointerDown={startDrawingRectangle}
+        onPointerMove={drawRectangle}
+        onPointerLeave={stopDrawingRectangle}
       ></canvas>
     </div>
   );
