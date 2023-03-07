@@ -13,6 +13,7 @@ export const CarCanvas = ({
   const [isDrawing, setIsDrawing] = useState(false);
   const [newMouseX, setNewMouseX] = useState(0);
   const [newMouseY, setNewMouseY] = useState(0);
+  const [canDraw, setCanDraw] = useState(true);
 
   const canvasOffSetX = useRef(null);
   const canvasOffSetY = useRef(null);
@@ -30,6 +31,7 @@ export const CarCanvas = ({
     context.lineWidth = 1;
     contextRef.current = context;
 
+    // const canvasOffSet = componentRef.current.getBoundingClientRect();
     const canvasOffSet = componentRef.current.getBoundingClientRect();
     canvasOffSetX.current = canvasOffSet.top;
     canvasOffSetY.current = canvasOffSet.left;
@@ -38,6 +40,8 @@ export const CarCanvas = ({
   const startDrawingRectangle = ({ nativeEvent }: any) => {
     nativeEvent.preventDefault();
     nativeEvent.stopPropagation();
+
+    if (!canDraw) return;
 
     startX.current = nativeEvent.offsetX;
     startY.current = nativeEvent.offsetY;
@@ -81,6 +85,17 @@ export const CarCanvas = ({
 
   const stopDrawingRectangle = () => {
     setIsDrawing(false);
+    setCanDraw(false);
+  };
+
+  const handleReset = () => {
+    setCanDraw(true);
+    contextRef.current.clearRect(
+      0,
+      0,
+      canvasRef.current.width,
+      canvasRef.current.height
+    );
   };
 
   return (
@@ -96,6 +111,15 @@ export const CarCanvas = ({
         onPointerMove={drawRectangle}
         onPointerUp={stopDrawingRectangle}
       ></canvas>
+
+      <button
+        type="button"
+        className="button-v2"
+        onClick={handleReset}
+        disabled={canDraw}
+      >
+        Reset
+      </button>
     </div>
   );
 };
