@@ -22,6 +22,10 @@
   .custom-container {
     @apply mx-auto max-w-screen-2xl p-4 lg:py-6;
   }
+
+  .canvas-container {
+    @apply h-52 w-full border border-gray-900 md:h-72 lg:h-96 lg:w-[600px];
+  }
 }
 
 /* Custom CSS */
@@ -35,4 +39,12 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: inherit;
+}
+
+.canvas-container-rect {
+  height: 500px;
+  width: 500px;
+  border: 2px solid #000;
+  margin-left: 100px;
+  margin-top: 100px;
 }
