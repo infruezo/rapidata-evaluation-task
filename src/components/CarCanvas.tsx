@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const CarCanvas = ({
   componentRef,
@@ -7,6 +8,8 @@ export const CarCanvas = ({
   componentRef: any;
   image: string;
 }) => {
+  const navigate = useNavigate();
+
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
 
@@ -97,6 +100,13 @@ export const CarCanvas = ({
           x: newMouseX,
           y: -1 * (newMouseY - canvasRef.current.width),
         },
+      },
+    });
+
+    // redirect to thank you page
+    return navigate("/thankyou", {
+      state: {
+        success: true,
       },
     });
   };

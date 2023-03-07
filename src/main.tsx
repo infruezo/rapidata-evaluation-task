@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import { Home } from "./pages/Home";
 import { SolvingPage } from "./pages/SolvingPage";
+import { ThankYou } from "./pages/ThankYou";
 
 const router = createBrowserRouter([
   // step 01
@@ -15,6 +16,12 @@ const router = createBrowserRouter([
   {
     path: "/prepare",
     element: <SolvingPage />,
+  },
+
+  // step 06
+  {
+    path: "/thankyou",
+    element: <ThankYou />,
   },
 ]);
 
