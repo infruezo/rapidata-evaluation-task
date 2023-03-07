@@ -21,7 +21,7 @@ export const ThankYou = () => {
       <div className="min-h-screen w-full bg-gradient-to-b from-primary-mainBlue/40 to-primary-mainBlue/10">
         <Navbar />
 
-        <main className="mt-6 w-full md:mt-24 lg:mt-32">
+        <main className="mt-6 w-full px-4 md:mt-24 md:px-6 lg:mt-32">
           <div className="flex w-full flex-col items-center space-y-6 text-center">
             <h1 className="text-4xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
               Thanks For Your Submission !
