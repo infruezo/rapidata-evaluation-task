@@ -16,23 +16,21 @@ export const PricingCard = ({
   updates: number;
 }) => {
   return (
-    <div className="group mx-auto flex max-w-lg cursor-pointer flex-col rounded-lg border border-gray-100 bg-white p-6 text-center text-gray-900 shadow duration-300 hover:-translate-y-3 hover:shadow-primary-mainGreen dark:border-gray-600 dark:bg-gray-800 dark:text-white xl:p-8">
+    <div className="group mx-auto flex max-w-lg cursor-pointer flex-col rounded-lg border border-gray-100 bg-white p-6 text-center text-gray-900 shadow duration-300 hover:-translate-y-3 hover:shadow-primary-mainGreen xl:p-8">
       <h3 className="mb-4 text-2xl font-semibold duration-300 group-hover:text-primary-mainBlue">
         {title}
       </h3>
-      <p className="font-light text-gray-500 dark:text-gray-400 sm:text-lg">
-        {description}
-      </p>
+      <p className="font-light text-gray-500 sm:text-lg">{description}</p>
       <div className="my-8 flex items-baseline justify-center">
         <span className="mr-2 text-5xl font-extrabold duration-300 group-hover:text-primary-mainGreen">
           ${price}
         </span>
-        <span className="text-gray-500 dark:text-gray-400">/month</span>
+        <span className="text-gray-500 ">/month</span>
       </div>
       <ul role="list" className="mb-8 space-y-4 text-left">
         <li className="flex items-center space-x-3">
           <svg
-            className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400"
+            className="h-5 w-5 flex-shrink-0 text-green-500 "
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +45,7 @@ export const PricingCard = ({
         </li>
         <li className="flex items-center space-x-3">
           <svg
-            className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400"
+            className="h-5 w-5 flex-shrink-0 text-green-500 "
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +60,7 @@ export const PricingCard = ({
         </li>
         <li className="flex items-center space-x-3">
           <svg
-            className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400"
+            className="h-5 w-5 flex-shrink-0 text-green-500 "
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +77,7 @@ export const PricingCard = ({
         </li>
         <li className="flex items-center space-x-3">
           <svg
-            className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400"
+            className="h-5 w-5 flex-shrink-0 text-green-500 "
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +95,7 @@ export const PricingCard = ({
         </li>
         <li className="flex items-center space-x-3">
           <svg
-            className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400"
+            className="h-5 w-5 flex-shrink-0 text-green-500 "
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"

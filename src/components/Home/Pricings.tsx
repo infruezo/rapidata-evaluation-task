@@ -3,13 +3,13 @@ import { PricingCard } from "./PricingCard";
 
 export const Pricings = () => {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-white">
       <div className="mx-auto max-w-screen-2xl py-8 px-4 lg:py-16 lg:px-6">
         <div className="mx-auto mb-8 max-w-screen-md text-center lg:mb-12">
-          <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900">
             Designed for business teams like yours
           </h2>
-          <p className="mb-5 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+          <p className="mb-5 font-light text-gray-500 sm:text-xl">
             Here at Rapidata.ai we focus on markets where technology,
             innovation, and capital can unlock long-term value and drive
             economic growth.

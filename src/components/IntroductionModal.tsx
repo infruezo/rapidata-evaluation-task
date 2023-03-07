@@ -48,9 +48,9 @@ export const IntroductionModal = () => {
                   <>
                     <div className="relative flex w-full flex-col">
                       <img
-                        src="/assets/images/gifs/introduction.gif"
+                        src="/assets/images/gifs/introduction2.gif"
                         alt="introduction/gif"
-                        className="h-80 w-full object-cover"
+                        className="h-auto w-full  object-cover"
                       />
 
                       <div className="flex h-auto w-full flex-col space-y-1 p-4 font-medium">
@@ -64,7 +64,7 @@ export const IntroductionModal = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="border-primary-smokehouseDarkRed/25 flex items-center justify-end space-x-4 rounded-b border-t border-solid p-6">
+                    <div className=" flex items-center justify-end space-x-4 rounded-b border-t border-solid p-6">
                       <button
                         className="button-v2"
                         type="button"
@@ -87,9 +87,9 @@ export const IntroductionModal = () => {
                   <>
                     <div className="relative flex w-full flex-col">
                       <img
-                        src="/assets/images/gifs/introduction.gif"
+                        src="/assets/images/gifs/introduction2.gif"
                         alt="introduction/gif"
-                        className="h-80 w-full object-cover"
+                        className="h-auto w-full object-cover"
                       />
 
                       <div className="flex h-auto w-full flex-col space-y-1 p-4 font-medium">
@@ -103,7 +103,7 @@ export const IntroductionModal = () => {
                         <p>Good luck!</p>
                       </div>
                     </div>
-                    <div className="border-primary-smokehouseDarkRed/25 flex items-center justify-end space-x-4 rounded-b border-t border-solid p-6">
+                    <div className="flex items-center justify-end space-x-4 rounded-b border-t border-solid p-6">
                       <button
                         className="button-v1"
                         type="button"
