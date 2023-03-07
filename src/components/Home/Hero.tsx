@@ -9,7 +9,7 @@ export const Hero = () => {
         <div className="flex h-full max-w-xl flex-col justify-center space-y-6 text-center text-primary-white md:text-start">
           <h1 className="text-4xl font-bold md:text-5xl lg:text-7xl">
             Welcome to{" "}
-            <span className="bg-gradient-to-r from-violet-900 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-black/80 to-blue-900 bg-clip-text text-transparent">
               Rapidata.ai
             </span>
           </h1>

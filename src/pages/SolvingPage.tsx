@@ -2,6 +2,7 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import { Navbar } from "../components/Navbar";
+import { IntroductionModal } from "../components/IntroductionModal";
 
 export const SolvingPage = () => {
   // constants - used later for selecting a random image from the public folder
@@ -42,6 +43,7 @@ export const SolvingPage = () => {
       setRandomImage(
         Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1) + MIN_NUMBER)
       );
+
       setLoading(false);
     });
   }, []);
@@ -51,23 +53,26 @@ export const SolvingPage = () => {
       <Navbar />
 
       <div className="mt-12 flex items-center justify-center md:mt-24 lg:mt-32">
+        <IntroductionModal />
         {loading ? (
           <>
-            <img src="/assets/images/brand/loader.gif" alt="loader/gif" />
+            <img src="/assets/images/gifs/loader.gif" alt="loader/gif" />
           </>
         ) : (
-          <div className="flex flex-col items-center space-y-8 px-2 text-center text-gray-900">
-            <div>
-              <h3 className="text-2xl font-semibold">Get Started Now!</h3>
-              <h5 className="text-lg font-medium text-gray-600">
-                Please Select The Car
-              </h5>
+          <>
+            <div className="flex flex-col items-center space-y-8 px-2 text-center text-gray-900">
+              <div>
+                <h3 className="text-2xl font-semibold">Get Started Now!</h3>
+                <h5 className="text-lg font-medium text-gray-600">
+                  Please Select The Car
+                </h5>
+              </div>
+              <img
+                src={`/assets/images/cars/${randomImage}.jpg`}
+                alt="image/jpg"
+              />
             </div>
-            <img
-              src={`/assets/images/cars/${randomImage}.jpg`}
-              alt="image/jpg"
-            />
-          </div>
+          </>
         )}
       </div>
     </div>
