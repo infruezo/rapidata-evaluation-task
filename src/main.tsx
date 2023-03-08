@@ -14,7 +14,7 @@ const router = createBrowserRouter([
 
   // step 02
   {
-    path: "/prepare",
+    path: "/demo",
     element: <SolvingPage />,
   },
 

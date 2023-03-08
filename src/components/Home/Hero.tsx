@@ -24,7 +24,7 @@ export const Hero = () => {
           </h5>
 
           <button className="mx-auto w-fit rounded-lg bg-primary-white py-3 px-8 text-center font-bold text-primary-mainBlue shadow-lg duration-300 active:scale-110 md:mx-0">
-            <Link to="/prepare">FREE DEMO</Link>
+            <Link to="/demo">FREE DEMO</Link>
           </button>
         </div>
 
