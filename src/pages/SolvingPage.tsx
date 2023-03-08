@@ -36,7 +36,7 @@ export const SolvingPage = () => {
     setLoading(true);
     const fetchPromise = getObjectAfterDelay();
     const timeOutPromise = new Promise((resolve) => {
-      setTimeout(resolve, 2000);
+      setTimeout(resolve, 200);
     });
 
     Promise.all([fetchPromise, timeOutPromise]).then(([response]) => {
@@ -60,7 +60,7 @@ export const SolvingPage = () => {
     >
       <div className="flex h-full w-full items-center justify-center pt-6 md:pt-24 lg:pt-32">
         {/* Introduction modal */}
-        <IntroductionModal />
+        {/* <IntroductionModal /> */}
         {loading ? (
           <div className="flex h-full w-full justify-center pt-48 md:pt-52 lg:pt-64">
             <img src="/assets/images/brand/loader.svg" alt="loader/svg" />

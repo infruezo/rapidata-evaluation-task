@@ -24,7 +24,7 @@
   }
 
   .canvas-container {
-    @apply h-[350px] w-[350px] border border-slate-800 shadow-md;
+    @apply h-[350px] w-[350px] touch-none border border-slate-800 shadow-md;
   }
 }
 

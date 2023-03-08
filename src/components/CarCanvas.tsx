@@ -19,7 +19,14 @@ export const CarCanvas = ({
   const [newMouseX, setNewMouseX] = useState(0);
   const [newMouseY, setNewMouseY] = useState(0);
   const [canSubmit, setCanSubmit] = useState(false);
-  const [canDraw, setCanDraw] = useState(true);
+  const [canClear, setCanClear] = useState(false);
+
+  const [rectangles, setRectangles] = useState([]);
+  const [currentStartX, setCurrentStartX] = useState(0);
+  const [currentStartY, setCurrentStartY] = useState(0);
+  const [currentRectWidth, setCurrentRectWidth] = useState(0);
+  const [currentRectHeight, setCurrentRectHeight] = useState(0);
+  const [responseData, setResponseData] = useState([]);
 
   const canvasOffSetX = useRef(null);
   const canvasOffSetY = useRef(null);
@@ -46,10 +53,10 @@ export const CarCanvas = ({
     nativeEvent.preventDefault();
     nativeEvent.stopPropagation();
 
-    if (!canDraw) return;
-
     startX.current = nativeEvent.offsetX;
+    setCurrentStartX(startX.current);
     startY.current = nativeEvent.offsetY;
+    setCurrentStartY(startY.current);
 
     setIsDrawing(true);
   };
@@ -66,7 +73,9 @@ export const CarCanvas = ({
     setNewMouseY(nativeEvent.offsetY - canvasOffSetY.current);
 
     const rectWidht = newMouseX - startX.current;
+    setCurrentRectWidth(rectWidht);
     const rectHeight = newMouseY - startY.current;
+    setCurrentRectHeight(rectHeight);
 
     contextRef.current.clearRect(
       0,
@@ -85,26 +94,50 @@ export const CarCanvas = ({
 
   const stopDrawingRectangle = () => {
     setIsDrawing(false);
-    setCanDraw(false);
+    setCanClear(true);
+    setRectangles((prev) => [
+      ...prev,
+      {
+        currentStartX,
+        currentStartY,
+        currentRectWidth,
+        currentRectHeight,
+        newMouseX,
+        newMouseY,
+      },
+    ]);
+
+    setResponseData((prev) => [
+      ...prev,
+      {
+        id: data.id,
+        boudingBox: {
+          topLeft: {
+            x: currentStartX.toFixed(4),
+            y: (-1 * (currentStartY - canvasRef.current.width)).toFixed(4),
+          },
+          bottomRight: {
+            x: newMouseX.toFixed(4),
+            y: (-1 * (newMouseY - canvasRef.current.width)).toFixed(4),
+          },
+        },
+      },
+    ]);
+
+    rectangles.map((rectangle) => {
+      contextRef.current.strokeRect(
+        rectangle.currentStartX,
+        rectangle.currentStartY,
+        rectangle.currentRectWidth,
+        rectangle.currentRectHeight
+      );
+    });
     setCanSubmit(true);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    console.log({
-      id: data.id,
-      boundingBox: {
-        topLeft: {
-          x: startX.current.toFixed(4),
-          y: (-1 * (startY.current - canvasRef.current.width)).toFixed(4),
-        },
-        bottomRight: {
-          x: newMouseX.toFixed(4),
-          y: (-1 * (newMouseY - canvasRef.current.width)).toFixed(4),
-        },
-      },
-    });
+    console.log(responseData);
 
     // redirect to thank you page
     return navigate("/thankyou", {
@@ -115,8 +148,10 @@ export const CarCanvas = ({
   };
 
   const handleReset = () => {
-    setCanDraw(true);
     setCanSubmit(false);
+    setCanClear(false);
+    setRectangles([]);
+    setResponseData([]);
     contextRef.current.clearRect(
       0,
       0,
@@ -147,9 +182,9 @@ export const CarCanvas = ({
         type="button"
         className="button-v2"
         onClick={handleReset}
-        disabled={canDraw}
+        disabled={!canClear}
       >
-        Reset
+        Clear Everything
       </button>
     </form>
   );
