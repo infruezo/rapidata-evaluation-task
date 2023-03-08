@@ -91,7 +91,7 @@ export const CarCanvas = ({
     e.preventDefault();
 
     console.log({
-      boudingBox: {
+      boundingBox: {
         topLeft: {
           x: startX.current,
           y: -1 * (startY.current - canvasRef.current.width),

@@ -18,15 +18,13 @@ export const ThankYou = () => {
 
   return (
     hasAccess && (
-      <div className="min-h-screen w-full bg-gradient-to-b from-primary-mainBlue/40 to-primary-mainBlue/10">
-        <Navbar />
-
-        <main className="mt-6 w-full px-4 md:mt-24 md:px-6 lg:mt-32">
+      <div className="min-h-screen w-full bg-gradient-to-b from-primary-mainBlue/60 to-primary-mainGreen/60">
+        <main className="w-full px-4 pt-6 md:px-6 md:pt-24 lg:pt-32">
           <div className="flex w-full flex-col items-center space-y-6 text-center">
             <h1 className="text-4xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
               Thanks For Your Submission !
             </h1>
-            <p className="text-base font-medium text-gray-500 md:text-lg lg:text-xl">
+            <p className="text-base font-medium text-gray-700 md:text-lg lg:text-xl">
               Hope you enjoyed this small demo of our app.
             </p>
             <img

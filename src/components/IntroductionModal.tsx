@@ -17,7 +17,7 @@ export const IntroductionModal = () => {
               <div className="relative flex w-full flex-col rounded-lg border-0 bg-primary-white shadow-lg outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-center justify-between rounded-t border-b border-solid p-5">
-                  <h3 className="text-lg font-bold lg:text-2xl">
+                  <h3 className="text-base font-bold lg:text-2xl">
                     Select the car like the GIF below.
                   </h3>
                   <button
@@ -58,9 +58,9 @@ export const IntroductionModal = () => {
                           A Random image of a car will appear after you close
                           this popup.
                         </p>
-                        <p>Try to circle the car as closely as possible</p>
                         <p>
-                          Dont forget to check your answer before submitting!
+                          Try to circle the car as closely as possible. Dont
+                          forget to check your answer before submitting!
                         </p>
                       </div>
                     </div>
@@ -99,8 +99,8 @@ export const IntroductionModal = () => {
                         </p>
                         <p>
                           However don't take too long, you only have 30 seconds.
+                          Good luck!
                         </p>
-                        <p>Good luck!</p>
                       </div>
                     </div>
                     <div className="flex items-center justify-end space-x-4 rounded-b border-t border-solid p-6">

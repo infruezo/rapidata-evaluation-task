@@ -35,7 +35,7 @@ export const SolvingPage = () => {
     setLoading(true);
     const fetchPromise = getObjectAfterDelay();
     const timeOutPromise = new Promise((resolve) => {
-      setTimeout(resolve, 300);
+      setTimeout(resolve, 2000);
     });
 
     Promise.all([fetchPromise, timeOutPromise]).then(([response]) => {
@@ -53,22 +53,22 @@ export const SolvingPage = () => {
 
   return (
     <div
-      className="min-h-screen w-full bg-gradient-to-b from-primary-mainBlue/60 to-primary-mainBlue/40"
+      className="min-h-screen w-full bg-gradient-to-b from-primary-mainBlue/60 to-primary-mainGreen/60"
       ref={componentRef}
     >
-      <div className="flex items-center justify-center pt-6 md:pt-24 lg:pt-32">
+      <div className="flex h-full w-full items-center justify-center pt-6 md:pt-24 lg:pt-32">
         {/* Introduction modal */}
-        <IntroductionModal />
+        {/* <IntroductionModal /> */}
         {loading ? (
-          <>
-            <img src="/assets/images/gifs/loader.gif" alt="loader/gif" />
-          </>
+          <div className="flex h-full w-full justify-center pt-48 md:pt-52 lg:pt-64">
+            <img src="/assets/images/brand/loader.svg" alt="loader/svg" />
+          </div>
         ) : (
           <div>
             <div className="flex flex-col items-center space-y-8 px-2 text-center text-gray-900">
               <div>
                 <h3 className="text-2xl font-semibold">Get Started Now!</h3>
-                <h5 className="text-lg font-medium text-gray-600">
+                <h5 className="text-lg font-medium text-gray-800">
                   Please Select The Car
                 </h5>
               </div>
