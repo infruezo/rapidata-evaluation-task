@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 export const CarCanvas = ({
   componentRef,
   image,
+  data,
 }: {
   componentRef: any;
   image: string;
+  data: any;
 }) => {
   const navigate = useNavigate();
 
@@ -91,14 +93,15 @@ export const CarCanvas = ({
     e.preventDefault();
 
     console.log({
+      id: data.id,
       boundingBox: {
         topLeft: {
-          x: startX.current,
-          y: -1 * (startY.current - canvasRef.current.width),
+          x: startX.current.toFixed(4),
+          y: (-1 * (startY.current - canvasRef.current.width)).toFixed(4),
         },
         bottomRight: {
-          x: newMouseX,
-          y: -1 * (newMouseY - canvasRef.current.width),
+          x: newMouseX.toFixed(4),
+          y: (-1 * (newMouseY - canvasRef.current.width)).toFixed(4),
         },
       },
     });

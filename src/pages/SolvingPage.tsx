@@ -11,6 +11,7 @@ export const SolvingPage = () => {
   // useState declarations
   const [loading, setLoading] = useState(false);
   const [randomImage, setRandomImage] = useState(MIN_NUMBER);
+  const [responseData, setResponseData] = useState(null);
 
   // component ref
   const componentRef = useRef(null);
@@ -40,6 +41,7 @@ export const SolvingPage = () => {
 
     Promise.all([fetchPromise, timeOutPromise]).then(([response]) => {
       console.log(response);
+      setResponseData(response);
 
       // get a random number from 1 to 11 then show that image to the user
       // hence why i renamed the files
@@ -76,6 +78,7 @@ export const SolvingPage = () => {
               <CarCanvas
                 componentRef={componentRef}
                 image={`/assets/images/cars/${randomImage}.jpg`}
+                data={responseData}
               />
             </div>
           </div>
