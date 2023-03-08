@@ -20,6 +20,7 @@ export const CarCanvas = ({
   const [newMouseY, setNewMouseY] = useState(0);
   const [canSubmit, setCanSubmit] = useState(false);
   const [canDraw, setCanDraw] = useState(true);
+  const [canSkip, setCanSkip] = useState(true);
 
   const canvasOffSetX = useRef(null);
   const canvasOffSetY = useRef(null);
@@ -52,6 +53,7 @@ export const CarCanvas = ({
     startY.current = nativeEvent.offsetY;
 
     setIsDrawing(true);
+    setCanSkip(false);
   };
 
   const drawRectangle = ({ nativeEvent }: any) => {
@@ -117,12 +119,26 @@ export const CarCanvas = ({
   const handleReset = () => {
     setCanDraw(true);
     setCanSubmit(false);
+    setCanSkip(true);
     contextRef.current.clearRect(
       0,
       0,
       canvasRef.current.width,
       canvasRef.current.height
     );
+  };
+
+  const handleSkip = () => {
+    console.log({
+      id: data.id,
+      carsFound: false,
+    });
+
+    return navigate("/thankyou", {
+      state: {
+        success: true,
+      },
+    });
   };
 
   return (
@@ -141,6 +157,15 @@ export const CarCanvas = ({
 
       <button type="submit" className="button-v1" disabled={!canSubmit}>
         Submit Response
+      </button>
+
+      <button
+        type="button"
+        className="button-v1"
+        disabled={!canSkip}
+        onClick={handleSkip}
+      >
+        No car in Sight
       </button>
 
       <button
