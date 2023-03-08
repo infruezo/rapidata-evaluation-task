@@ -55,12 +55,11 @@ export const IntroductionModal = () => {
 
                       <div className="flex h-auto w-full flex-col space-y-1 p-4 text-sm font-medium md:text-base">
                         <p>
-                          A Random image of a car will appear after you close
-                          this popup.
+                          You will have to solve 3 puzzles like the image above.
                         </p>
                         <p>
                           Try to circle the car as closely as possible. Dont
-                          forget to check your answer before submitting!
+                          forget to check your answer and go to the next one!
                         </p>
                       </div>
                     </div>
@@ -97,10 +96,7 @@ export const IntroductionModal = () => {
                           Don't forget, you can redo this anytime even if you
                           mess up!
                         </p>
-                        <p>
-                          However don't take too long, you only have 30 seconds.
-                          Good luck!
-                        </p>
+                        <p>Be sure to submit your final answer at the end.</p>
                       </div>
                     </div>
                     <div className="flex items-center justify-end space-x-4 rounded-b border-t border-solid p-6">

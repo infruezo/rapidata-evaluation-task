@@ -7,10 +7,11 @@ export const SolvingPage = () => {
   // constants - used later for selecting a random image from the public folder
   const MIN_NUMBER = 1;
   const MAX_NUMBER = 11;
+  const NUMBER_OF_IMAGES = 3;
 
   // useState declarations
   const [loading, setLoading] = useState(false);
-  const [randomImage, setRandomImage] = useState(MIN_NUMBER);
+  const [randomImages, setRandomImages] = useState([]);
   const [responseData, setResponseData] = useState(null);
 
   // component ref
@@ -45,13 +46,20 @@ export const SolvingPage = () => {
 
       // get a random number from 1 to 11 then show that image to the user
       // hence why i renamed the files
-      setRandomImage(
-        Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1) + MIN_NUMBER)
-      );
+      for (let index = 0; index < NUMBER_OF_IMAGES; index++) {
+        setRandomImages((prev) => [
+          ...prev,
+          Math.floor(
+            Math.random() * (MAX_NUMBER - MIN_NUMBER + 1) + MIN_NUMBER
+          ),
+        ]);
+      }
 
       setLoading(false);
     });
   }, []);
+
+  console.log(randomImages);
 
   return (
     <div
@@ -77,7 +85,7 @@ export const SolvingPage = () => {
 
               <CarCanvas
                 componentRef={componentRef}
-                image={`/assets/images/cars/${randomImage}.jpg`}
+                images={randomImages}
                 data={responseData}
               />
             </div>
