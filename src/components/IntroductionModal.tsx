@@ -53,7 +53,7 @@ export const IntroductionModal = () => {
                         className="h-auto w-full  object-cover"
                       />
 
-                      <div className="flex h-auto w-full flex-col space-y-1 p-4 font-medium">
+                      <div className="flex h-auto w-full flex-col space-y-1 p-4 text-sm font-medium md:text-base">
                         <p>
                           A Random image of a car will appear after you close
                           this popup.
@@ -92,7 +92,7 @@ export const IntroductionModal = () => {
                         className="h-auto w-full object-cover"
                       />
 
-                      <div className="flex h-auto w-full flex-col space-y-1 p-4 font-medium">
+                      <div className="flex h-auto w-full flex-col space-y-1 p-4 text-sm font-medium md:text-base">
                         <p>
                           Don't forget, you can redo this anytime even if you
                           mess up!

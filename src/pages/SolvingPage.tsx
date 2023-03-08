@@ -53,12 +53,10 @@ export const SolvingPage = () => {
 
   return (
     <div
-      className="min-h-screen w-full bg-gradient-to-b from-primary-mainBlue/40 to-primary-mainBlue/10"
+      className="min-h-screen w-full bg-gradient-to-b from-primary-mainBlue/60 to-primary-mainBlue/40"
       ref={componentRef}
     >
-      <Navbar />
-
-      <div className="mt-6 flex items-center justify-center md:mt-24 lg:mt-32">
+      <div className="flex items-center justify-center pt-6 md:pt-24 lg:pt-32">
         {/* Introduction modal */}
         <IntroductionModal />
         {loading ? (
